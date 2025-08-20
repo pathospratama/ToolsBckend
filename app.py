@@ -6,9 +6,11 @@ import os
 # Load environment variables
 load_dotenv()
 
-def create_app():
-    app = Flask(__name__)
+app = Flask(__name__)
     CORS(app)
+    
+
+def create_app():
     
     # Configure the app from .env
     app.config['UPLOAD_FOLDER'] = os.getenv('UPLOAD_FOLDER', 'uploads')
@@ -42,5 +44,4 @@ def create_app():
 
 # HANYA ini yang boleh di level global
 if __name__ == '__main__':
-    app = create_app()
-    app.run(debug=True, threaded=True)
+    app.run(debug=True)
